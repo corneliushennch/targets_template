@@ -3,19 +3,23 @@
 #
 # Author: Hennch Cornelius (cornelius.hennch@charite.de)
 #
-# Description: Custom functions for the current project
+# Description: This script contains all the functions used in the _targets.R
+# pipeline aka "the muscle"
 #
 # Code written according to Hadley Wickhams "tidyverse style guide"
 # Header end ===================================================================
 
 # 1. Data wrangling functions --------------------------------------------------
-## 1.1 as.numeric.factor   -----------------------------------------------------
-# convert factor back to numeric
-as.numeric.factor <- function(x) {
-  as.numeric(levels(x))[x]
+import_data <- function(file) {
+  readr::read_csv2(file, col_types = cols(), col_select = -1)
 }
 
 # 2. Model functions -----------------------------------------------------------
 
 
 # 3. Plotting functions --------------------------------------------------------
+plot_data <- function(data) {
+  ggplot(data) +
+    geom_point(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+    theme_classic(12)
+}
