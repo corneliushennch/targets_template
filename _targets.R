@@ -1,13 +1,21 @@
-# Created by use_targets().
-# Follow the comments below to fill in this target script.
-# Then follow the manual to check and run the pipeline:
-#   https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline
+# Header start =================================================================
+# _targets.R
+#
+# Author: Hennch Cornelius (cornelius.hennch@charite.de)
+#
+# Description: 
+# This script contains the entire pipeline definition thus providing an overview
+# over all analysis steps.
+#
+# Code written according to Hadley Wickhams "tidyverse style guide"
+# Based on the template treated by use_targets(). 
+# Header end ===================================================================
 
-# Load packages required to define the pipeline:
+# 1. Load packages required to define the pipeline -----------------------------
 library(targets)
-# library(tarchetypes) # Load other packages as needed.
+library(tarchetypes) # Load other packages as needed.
 
-# Set target options:
+# 2. Set target options --------------------------------------------------------
 tar_option_set(
   packages = c("tidyverse") # Packages that your targets need for their tasks.
   # format = "qs", # Optionally set the default storage format. qs is fast.
@@ -48,19 +56,38 @@ tar_option_set(
 tar_source()
 # tar_source("other_functions.R") # Source other scripts as needed.
 
-# Replace the target list below with your own:
+# 3. Targets pipeline ----------------------------------------------------------
 list(
+  
+  ## 3.1 Import and tidy -------------------------------------------------------
   tar_target(
     name = data_file,
-    command = "data/raw/sample_data.csv"
+    command = "data/raw/sample_data.csv",
+    format = "file",
+    description = "Raw data file"
     # format = "qs" # Efficient storage for general data objects.
   ),
+  
+  # Import
   tar_target(
     name = data,
-    command = import_data(data_file)
-  )  ,
+    command = import_data(data_file),
+    description = "Sample data frame"
+  ),
+  
+  ## 3.2 Transform -------------------------------------------------------------
+  
+  
+  ## 3.3 Explore ---------------------------------------------------------------
+  
+  
+  ## 3.4 Visualize -------------------------------------------------------------
   tar_target(
     name = scatterplot,
-    command = plot_data(data)
+    command = plot_data(data),
+    description = "Visualizing the data as a scatterplot"
   )
+  
+  ## 3.5 Communicate -----------------------------------------------------------
+  
 )
