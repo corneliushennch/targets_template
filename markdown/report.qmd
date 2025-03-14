@@ -1,27 +1,40 @@
 ---
-title: "Smaple report"
+title: "Sample report"
 author: "Cornelius Hennch"
-format: pdf
-editor: visual
+format:
+  pdf:
+    toc: true
+    toc-depth: 2
+    documentclass: article
+  html:
+    toc: true
+    toc-depth: 2
+    css: styles.css
+# editor: visual
 ---
 
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
 
-## Running Code
+## This is the data
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Let's examine the data first.
 
 ```{r}
-1 + 1
+
+head(tar_read(data))
+
 ```
 
-You can add options to executable code like this
+## Stunning visualization
+
+Let's visualize it.
 
 ```{r}
 #| echo: false
-2 * 2
+tar_load(scatterplot)
+scatterplot
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).

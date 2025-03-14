@@ -86,8 +86,33 @@ list(
     name = scatterplot,
     command = plot_data(data),
     description = "Visualizing the data as a scatterplot"
-  )
+  ),
   
   ## 3.5 Communicate -----------------------------------------------------------
+  # PDF report
+  tar_render(
+    name = pdf_report,
+    path = "markdown/report.qmd",
+    output_format = "pdf_document",
+    output_dir = "output/reports/",
+    description = "PDF report"
+  ),
   
+  # HTML report
+  tar_render(
+    name = html_report,
+    path = "markdown/report.qmd",
+    output_format = "html_document",
+    output_dir = "output/reports/",
+    description = "HTML report"
+  ),
+  
+  # presentation
+  tar_render(
+    name = presentation,
+    path = "markdown/presentation.Rmd",
+    #output_format = "pptx",
+    output_dir = "output/presentations/",
+    description = "Presentation"
+  )
 )
