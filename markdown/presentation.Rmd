@@ -1,5 +1,5 @@
 ---
-title: "presentation"
+title: "Sample presentation"
 author: "Cornelius Hennch"
 date: "2025-03-14"
 output: 
@@ -26,12 +26,13 @@ When you click the **Knit** button a document will be generated that includes bo
 ## Slide with R Output
 
 ```{r cars, echo = TRUE}
-summary(cars)
+head(tar_read(data))
 ```
 
 ## Slide with Plot
 
-```{r pressure}
-plot(pressure)
+```{r plot}
+tar_load(scatterplot)
+scatterplot
 ```
 

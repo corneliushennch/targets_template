@@ -1,0 +1,34 @@
+---
+title: "Sample report"
+author: "Cornelius Hennch"
+output:
+  pdf_document:
+    toc: true
+    number_sections: true
+    toc_depth: 2
+  html_document:
+    toc: true
+    toc_depth: 2
+    css: style.css
+---
+
+## Rmarkdown
+
+Rmarkdown enables you to weave together content and executable code into a finished document. 
+
+## This is the data
+
+Let's examine the data first.
+
+```{r}
+library(targets)
+head(tar_read(data))
+```
+
+## Stunning visualization
+
+Let's visualize it.
+
+```{r, echo=FALSE}
+tar_load(scatterplot)
+scatterplot

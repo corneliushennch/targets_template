@@ -26,5 +26,3 @@ tar_visnetwork()
 
 # Load necessary / all objects
 # tar_load() / tar_load_everything()
-
-
