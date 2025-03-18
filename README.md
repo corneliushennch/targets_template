@@ -15,15 +15,18 @@ This repository serves as a template for creating R data analysis projects with 
 ## Repository Structure
 
 ```
-├── data/                   # Directory for raw data
-├── R/                      # Directory for R scripts
-│   ├── functions/          # Custom functions
-│   ├── targets/            # Target scripts for the pipeline
-├── reports/                # Generated reports
-├── renv/                   # Renv environment directory
-├── _targets.R              # Targets pipeline definition
-├── renv.lock               # Renv lockfile for reproducible environments
-├── README.md               # This README file
+.
+├── R                      # Directory for R scripts
+├── _targets               # Directory for targets internal files
+├── data                   # Directory for data
+│   └── raw                # Raw data files
+├── markdown               # Directory for markdown files
+├── output                 # Directory for output files
+│   ├── plots              # Generated plots
+│   ├── presentations      # Presentation files
+│   ├── reports            # Generated reports
+│   └── tables             # Generated tables
+└── renv                   # Renv environment directory
 ```
 
 ## Getting Started
