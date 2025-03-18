@@ -48,7 +48,7 @@ This repository serves as a template for creating R data analysis projects with 
    targets::tar_make()
    
    # inspect the pipeline
-  tar_visnetwork()
+   tar_visnetwork()
    ```
 
 ## Contributing
